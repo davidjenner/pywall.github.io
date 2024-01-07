@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Paywall Bypass Proxy</title>
+    <script>
+        function bypassPaywall() {
+            const url = document.getElementById("urlInput").value;
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("contentContainer").innerHTML = data;
+                })
+                .catch(error => console.error(error));
+        }
+    </script>
+</head>
+<body>
+    <h1>Paywall Bypass Proxy</h1>
+    <form onsubmit="event.preventDefault(); bypassPaywall();">
+        <input type="text" id="urlInput" placeholder="Enter URL">
+        <button type="submit">Bypass Paywall</button>
+    </form>
+    <div id="contentContainer"></div>
+</body>
+</html>
